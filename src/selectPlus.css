@@ -1,0 +1,11 @@
+.constainer{
+    color:#f66;
+}
+li{
+    list-style: none;
+}
+.likeInput{
+    height: 30px;
+    width: 500px;
+    border: 1px solid #333;
+}
