@@ -1,63 +1,63 @@
 import React, { Component } from 'react';
-import SelectPlus from "./selectPlus";
+import SelecWithSearch from "./selecWithSearch";
 
 class Asdf extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            selectList: [{
-                id:1,child: '分类1',parent: '父类1'
+            selectWithSearchList: [{
+                id:1,listChild: '分类1',listParent: '父类1'
             },{
-                id:2,child: '分类2',parent: '父类1'
+                id:2,listChild: '分类2',listParent: '父类1'
             },{
-                id:3,child: '分类3',parent: '父类1'
+                id:3,listChild: '分类3',listParent: '父类1'
             },{
-                id:4,child: '分类22',parent: '父类2'
+                id:4,listChild: '分类22',listParent: '父类2'
             },{
-                id:5,child: '分类23',parent: '父类2'
+                id:5,listChild: '分类23',listParent: '父类2'
             },{
-                id:6,child: '分类24',parent: '父类2'
+                id:6,listChild: '分类24',listParent: '父类2'
             }],
-            selectLists:[{
-                id:1,child: '分类1',parent: '父类1'
+            selectWithSearchLists:[{
+                id:1,listChild: '分类1',listParent: '父类1'
             },{
-                id:2,child: '分类2',parent: '父类1'
+                id:2,listChild: '分类2',listParent: '父类1'
             },{
-                id:3,child: '分类3',parent: '父类1'
+                id:3,listChild: '分类3',listParent: '父类1'
             },{
-                id:4,child: '分类22',parent: '父类2'
+                id:4,listChild: '分类22',listParent: '父类2'
             },{
-                id:5,child: '分类23',parent: '父类2'
+                id:5,listChild: '分类23',listParent: '父类2'
             },{
-                id:6,child: '分类24',parent: '父类2'
+                id:6,listChild: '分类24',listParent: '父类2'
             }],
             defaultValue: [{
-                id:6,child: '分类24',parent: '父类2'
+                id:6,listChild: '分类24',listParent: '父类2'
             }]
          }
     }
 
-    selectSearch=(inputVal, activeArr)=>{
-        let { selectList,selectLists} = this.state;
+    selectSearch=(inputVal, selectActive)=>{
+        let { selectWithSearchList,selectWithSearchLists} = this.state;
         let temp = [];
         if(inputVal){
             console.log(temp)
-            temp = selectLists.filter(item=>(item.child.includes(inputVal) || item.parent.includes(inputVal)));
+            temp = selectWithSearchLists.filter(item=>(item.listChild.includes(inputVal) || item.listParent.includes(inputVal)));
         }else{
-            temp = selectLists
+            temp = selectWithSearchLists
         }
         console.log(temp);
         this.setState({
-            selectList: temp,
-            defaultValue: activeArr
+            selectWithSearchList: temp,
+            defaultValue: selectActive
         })
     }
 
     render() { 
-        const { selectList, defaultValue } = this.state;
+        const { selectWithSearchList, defaultValue } = this.state;
         return ( 
             <div>
-                <SelectPlus selectList = {selectList} onClick={this.selectSearch} defaultValue = {defaultValue} />
+                <SelecWithSearch selectWithSearchList = {selectWithSearchList} onClick={this.selectSearch} defaultValue = {defaultValue} />
             </div>
          );
     }
